@@ -1,0 +1,20 @@
+<!--<app-list-controller></app-list-controller>-->
+<div class="table-responsive-lg">
+  <table class="table mb-5" style="margin-top: 56px;">
+    <thead>
+      <tr>
+        <th align="left">Version</th>
+        <th align="center" class="text-center">Modified Date</th>
+        <th align="center" class="text-center">Modified by</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let version of versionData">
+        <td align="left" (click)="populateForm(version)">{{version.VersionTag}}</td>
+        <td align="center" (click)="populateForm(version)">{{version.IssueModifiedDate | date: "dd MMM yyyy HH:mm"}}</td>
+        <td align="center" (click)="populateForm(version)">{{version.ModifiedBy}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!--<app-footer></app-footer>-->

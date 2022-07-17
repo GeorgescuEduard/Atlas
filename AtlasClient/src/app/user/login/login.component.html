@@ -1,0 +1,31 @@
+<div class="login d-flex align-items-center py-5 bg-image">
+  <div class="container">
+    <div class="card" style="background-color:rgba(24, 26, 27, 0.9); min-width: 550px; max-width: 50%; margin: auto;">
+      <a class="login-heading text-center mt-3" style="margin-bottom: 7%;"><img src="assets/atlas_white.png"
+          width="120px"></a>
+      <div class="ml-5 mr-5">
+        <h3 class="login-heading mb-4" style="color: rgb(209, 205, 199);">Welcome back!</h3>
+        <form #form='ngForm' class="mb-4" autocomplete="off" (submit)="onSubmit(form)">
+          <div class="form-label-group">
+
+            <input type="text" class="form-control" id="UserName" #UserName="ngModel" name="UserName"
+              [(ngModel)]="formModel.UserName" placeholder="Username" required>
+            <label for="UserName">Username</label>
+          </div>
+
+          <div class="form-label-group">
+            <input type="password" class="form-control" id="Password" #Password="ngModel" name="Password"
+              [(ngModel)]="formModel.Password" placeholder="Password" required>
+            <label for="Password">Password</label>
+          </div>
+
+          <button type="submit" class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2">
+            Log in</button>
+          <div class="text-center">
+            <a class="small" (click)="this.service.onRegisterRedirect()">Don't have an account?</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

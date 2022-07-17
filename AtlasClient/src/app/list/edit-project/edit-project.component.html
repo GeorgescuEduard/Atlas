@@ -1,0 +1,34 @@
+<app-list-controller></app-list-controller>
+<div class="container mt-5">
+    <div class="card" style="background-color:rgb(24, 26, 27); min-width: 550px; max-width: 50%; margin: auto;">
+        <div class="ml-5 mr-5">
+            <h3 class="login-heading mb-4 mt-5" style="color: rgb(209, 205, 199);">Edit project</h3>
+            <form #form="ngForm" autocomplete="off" (submit)="this.service.updateProject(form)"
+                style="margin-top: 20px;">
+
+                <p style="margin-bottom: 5px; color: rgb(209, 205, 199);"><b>Project KEY</b></p>
+                <div class="input-group mb-3">
+
+                    <input type="text" name="ProjectKEY" #ProjectKEY="ngModel"
+                        [(ngModel)]="formData.ProjectKEY" class="form-control" placeholder="Project KEY"
+                        required>
+                </div>
+
+                <p style="color: rgb(209, 205, 199);"><b>Project Text</b></p>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" name="ProjectText" #ProjectText="ngModel"
+                            [(ngModel)]="formData.ProjectText" class="form-control"
+                            placeholder="Project Text">
+                    </div>
+                </div>
+        
+                <div class="text-center mt-4">
+                    <button class="btn btn-success mb-5" type="submit" [disabled]="form.invalid"><i
+                            style="color: white; margin: auto;" class="fas fa-plus"></i> Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

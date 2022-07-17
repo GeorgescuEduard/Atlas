@@ -1,0 +1,28 @@
+<app-list-controller></app-list-controller>
+<table class="table mb-5" style="color: rgb(189, 187, 184);">
+  <thead>
+    <tr>
+      <th style="border-top: 0px;" align="left">Project KEY</th>
+      <th style="border-top: 0px;" align="center" class="text-center">Project Name</th>
+      <th style="border-top: 0px;" align="center" class="text-center">Assigneed Manager</th>
+      <th style="border-top: 0px;" align="center" class="text-center">Created Date</th>
+      <th style="border-top: 0px;" align="right"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of service.projectList | paginate: service.config">
+      <td align="left" (click)="projectView(project)">{{project.ProjectKEY}}</td>
+      <td align="center" (click)="projectView(project)">{{project.ProjectText}}</td>
+      <td align="center" (click)="projectView(project)">{{project.ProjectText}}</td>
+      <td align="center" (click)="projectView(project)">{{project.ProjectTime | date: "dd MMM yyyy HH:mm"}}</td>
+      <td align="right">
+        <i class="far fa-trash-alt fa-lg" style="color: rgb(189, 187, 184);" (click)="this.service.onDelete(project.IssueID)"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div style="justify-content: center;">
+  <pagination-controls (pageChange)="pageChanged($event)" style="position: absolute; bottom:30px; width:100%;"
+    class="text-center"></pagination-controls>
+</div>
+<app-footer></app-footer>

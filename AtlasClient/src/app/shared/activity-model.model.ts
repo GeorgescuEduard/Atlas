@@ -1,0 +1,31 @@
+export class ActivityModel {
+    ActivityID: number;
+    ActivityText: string;
+    ProjectOldValue: string;
+    ProjectNewValue: string;
+    IssueTypeOldValue: string;
+    IssueTypeNewValue: string;
+    IssueSummaryOldValue: string;
+    IssueSummaryNewValue: string;
+    IssueDescriptionOldValue: string;
+    IssueDescriptionNewValue: string;
+    IssueStatusOldValue: string;
+    IssueStatusNewValue: string;
+    IssueResolutionOldValue: string;
+    IssueResolutionNewValue: string;
+    IssueStepsToReproOldValue: string;
+    IssueStepsToReproNewValue: string;
+    IssueSeverityOldValue: string;
+    IssueSeverityNewValue: string;
+    IssueProbabilityOldValue: string;
+    IssueProbabilityNewValue: string;
+    IssueFixVersionOldValue: string;
+    IssueFixVersionNewValue: string;
+    IssueReporterOldValue: string;
+    IssueReporterNewValue: string;
+    IssueAssigneeOldValue: string;
+    IssueAssigneeNewValue: string;
+    ActivityUser: string;
+    ActivityTime: Date;
+    IssueID: string;
+}

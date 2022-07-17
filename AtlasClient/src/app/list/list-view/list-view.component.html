@@ -1,0 +1,34 @@
+<app-list-controller></app-list-controller>
+<table class="table mb-5" style="color: rgb(189, 187, 184);">
+  <thead>
+    <tr>
+      <th style="border-top: 0px;" align="left">Issue ID</th>
+      <th style="border-top: 0px;" align="center" class="text-center">Summary</th>
+      <th style="border-top: 0px;" align="center" class="text-center">Severity</th>
+      <th style="border-top: 0px;" align="center" class="text-center">Probability</th>
+      <th style="border-top: 0px;" align="center" class="text-center">Created Date</th>
+      <th style="border-top: 0px;" align="center" class="text-center">Reporter</th>
+      <th style="border-top: 0px;" align="center" class="text-center">Assignee</th>
+      <th style="border-top: 0px;" align="right"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let file of service.list | paginate: service.config">
+      <td align="left" (click)="fileView(file)">{{file.IssueID}}</td>
+      <td align="left" (click)="fileView(file)">{{file.IssueSummary}}</td>
+      <td align="center" (click)="fileView(file)">{{file.IssueSeverity}}</td>
+      <td align="center" (click)="fileView(file)">{{file.IssueProbability}}</td>
+      <td align="center" (click)="fileView(file)">{{file.IssueCreatedDate | date: "dd MMM yyyy HH:mm"}}</td>
+      <td align="center" (click)="fileView(file)">{{file.IssueReporter}}</td>
+      <td align="center" (click)="fileView(file)">{{file.IssueAssignee}}</td>
+      <td align="right">
+        <i class="far fa-trash-alt fa-lg" style="color: rgb(189, 187, 184);" (click)="this.service.onDelete(file.IssueID)"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div style="justify-content: center;">
+  <pagination-controls (pageChange)="pageChanged($event)" style="position: absolute; bottom:30px; width:100%;"
+    class="text-center"></pagination-controls>
+</div>
+<app-footer></app-footer>

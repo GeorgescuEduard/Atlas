@@ -1,0 +1,99 @@
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="logInModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="container-fluid">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="text-center mb-4">
+              </div>
+              <h4>Edit issue</h4>
+              <form #form="ngForm" autocomplete="off" (submit)="this.service.updateRecord(form)" style="margin-top: 20px;">
+                <input type="hidden" name="IssueID" [value]="formData.IssueID">
+                <div class="form-group">
+                    <p><b>Issue Type</b></p>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <select name="IssueType" #IssueType="ngModel" [(ngModel)]="service.formData.IssueType" class="form-control">
+                                <option value="" disabled selected hidden>Select the issue type:</option>
+                                <option value="">None</option>
+                                <option value="BUG">BUG</option>
+                                <option value="TASK">TASK</option>
+                                <option value="REQUEST">REQUEST</option>
+                            </select>
+                        </div>
+                    </div>
+        
+                    <p style="margin-bottom: 5px;"><b>Summary</b></p>
+                    <div class="input-group">
+        
+                        <input type="text" name="IssueSummary" #IssueSummary="ngModel" [(ngModel)]="service.formData.IssueSummary" class="form-control"
+                            placeholder="Summary" required>
+                    </div>
+                </div>
+        
+                <p><b>Description</b></p>
+                <div class="form-group">
+                    <div class="input-group">
+                        <textarea style="resize: none;" class='autoExpand' rows="5" cols="5" name="IssueDescription" #IssueDescription="ngModel"
+                            [(ngModel)]="formData.IssueDescription" class="form-control" placeholder="" required></textarea>
+                    </div>
+                </div>
+        
+                <p><b>Steps to reproduce</b></p>
+                <div class="form-group">
+                    <div class="input-group">
+                        <textarea style="resize: none;" class='autoExpand' rows="5" cols="5" name="IssueStepsToRepro" #IssueStepsToRepro="ngModel"
+                        [(ngModel)]="formData.IssueStepsToRepro" class="form-control" placeholder="" required></textarea>
+                    </div>
+                </div>
+        
+                <p><b>Severity</b></p>
+                <div class="form-group">
+                    <select name="IssueSeverity" #IssueSeverity="ngModel" [(ngModel)]="service.formData.IssueSeverity" class="form-control">
+                        <option value="" disabled selected hidden>Select the issue severity:</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+        
+                <p><b>Probability</b></p>
+                <div class="form-group">
+                    <select name="IssueProbability" #IssueProbability="ngModel" [(ngModel)]="service.formData.IssueProbability" class="form-control">
+                        <option value="" disabled selected hidden>Select the issue probability:</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+        
+                <p><b>Reporter</b></p>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" name="IssueReporter" #IssueReporter="ngModel" [(ngModel)]="service.formData.IssueReporter"
+                            class="form-control" placeholder="Reporter">
+                    </div>
+                </div>
+        
+                <p><b>Assignee</b></p>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" name="IssueAssignee" #IssueAssignee="ngModel" [(ngModel)]="service.formData.IssueAssignee"
+                            class="form-control" placeholder="Assignee">
+                    </div>
+                </div>
+                <div class="form-group text-center mt-4">
+                    <button class="btn btn-success mb-5" type="submit" [disabled]="form.invalid"><i style="color: white;"
+                            class="fas fa-plus"></i>
+                            Submit</button>
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<app-footer></app-footer>
